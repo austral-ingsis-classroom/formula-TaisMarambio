@@ -1,6 +1,5 @@
-package edu.austral.ingsis.math;
+package edu.austral.ingsis.math.composite;
 
-import edu.austral.ingsis.math.composite.Variable;
 import edu.austral.ingsis.math.composite.operations.Absolute;
 import edu.austral.ingsis.math.composite.operations.Division;
 import edu.austral.ingsis.math.composite.operations.Multiplication;
@@ -9,6 +8,7 @@ import edu.austral.ingsis.math.composite.operations.Power;
 import edu.austral.ingsis.math.composite.operations.Substract;
 import edu.austral.ingsis.math.composite.operations.Sum;
 import org.junit.jupiter.api.Test;
+
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;

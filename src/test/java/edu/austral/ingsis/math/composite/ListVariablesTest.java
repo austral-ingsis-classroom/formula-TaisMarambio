@@ -1,15 +1,16 @@
-package edu.austral.ingsis.math;
+package edu.austral.ingsis.math.composite;
 
 import edu.austral.ingsis.math.composite.operations.Division;
 import edu.austral.ingsis.math.composite.operations.Multiplication;
 import edu.austral.ingsis.math.composite.operations.Power;
 import edu.austral.ingsis.math.composite.operations.Substract;
 import edu.austral.ingsis.math.composite.operations.Sum;
-import edu.austral.ingsis.math.composite.Variable;
+import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.empty;
-import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
