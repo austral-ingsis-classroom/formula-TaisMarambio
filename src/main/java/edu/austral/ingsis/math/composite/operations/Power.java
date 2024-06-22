@@ -10,7 +10,7 @@ public class Power extends TwoVariableOperation {
 
   @Override
   public double evaluate() {
-    return Math.pow(getFunction1().evaluate(),getFunction2().evaluate());
+    return Math.pow(getFunction1().evaluate(), getFunction2().evaluate());
   }
 
   @Override

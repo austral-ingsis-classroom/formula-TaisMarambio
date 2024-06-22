@@ -16,7 +16,7 @@ public class Variable implements Function {
 
   public Variable(int value) {
     this.value = value;
-    this.variable="";
+    this.variable = "";
   }
 
   public Variable(String variable) {
@@ -29,22 +29,22 @@ public class Variable implements Function {
     return value;
   }
 
-  public boolean isVariable () {
+  public boolean isVariable() {
     return !variable.isEmpty();
   }
 
   @Override
   public String print() {
-    if(!variable.isEmpty()){
+    if (!variable.isEmpty()) {
       return variable;
-    } else{
+    } else {
       return String.valueOf(value);
     }
   }
 
   @Override
   public List<String> listVariables(List<String> list) {
-    if(variable.isEmpty()){
+    if (variable.isEmpty()) {
       return List.of();
     }
     List<String> names = new ArrayList<>();

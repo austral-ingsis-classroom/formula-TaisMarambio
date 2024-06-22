@@ -3,7 +3,7 @@ package edu.austral.ingsis.math.visitor.operations;
 import edu.austral.ingsis.math.visitor.Visitable;
 import edu.austral.ingsis.math.visitor.Visitor;
 
-public class Division extends TwoVariableOperation{
+public class Division extends TwoVariableOperation {
 
   public Division(Visitable visitable1, Visitable visitable2) {
     super(visitable1, visitable2);

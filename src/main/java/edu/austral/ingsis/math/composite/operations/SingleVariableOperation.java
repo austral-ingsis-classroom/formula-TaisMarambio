@@ -1,7 +1,6 @@
 package edu.austral.ingsis.math.composite.operations;
 
 import edu.austral.ingsis.math.composite.Function;
-
 import java.util.List;
 
 public abstract class SingleVariableOperation implements Function {

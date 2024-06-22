@@ -3,7 +3,7 @@ package edu.austral.ingsis.math.visitor.operations;
 import edu.austral.ingsis.math.visitor.Visitable;
 import edu.austral.ingsis.math.visitor.Visitor;
 
-public class Sum extends TwoVariableOperation{
+public class Sum extends TwoVariableOperation {
 
   public Sum(Visitable visitable1, Visitable visitable2) {
     super(visitable1, visitable2);

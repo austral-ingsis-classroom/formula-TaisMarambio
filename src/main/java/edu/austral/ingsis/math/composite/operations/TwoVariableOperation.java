@@ -24,6 +24,8 @@ public abstract class TwoVariableOperation implements Function {
 
   @Override
   public List<String> listVariables(List<String> list) {
-    return Stream.concat(function1.listVariables(list).stream(), function2.listVariables(list).stream()).collect(Collectors.toList());
+    return Stream.concat(
+            function1.listVariables(list).stream(), function2.listVariables(list).stream())
+        .collect(Collectors.toList());
   }
 }

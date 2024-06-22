@@ -1,5 +1,7 @@
 package edu.austral.ingsis.math.visitor.visitors;
 
+import edu.austral.ingsis.math.visitor.Variable;
+import edu.austral.ingsis.math.visitor.Visitor;
 import edu.austral.ingsis.math.visitor.operations.Absolute;
 import edu.austral.ingsis.math.visitor.operations.Division;
 import edu.austral.ingsis.math.visitor.operations.Multiplication;
@@ -7,8 +9,6 @@ import edu.austral.ingsis.math.visitor.operations.Parenthesis;
 import edu.austral.ingsis.math.visitor.operations.Power;
 import edu.austral.ingsis.math.visitor.operations.Substract;
 import edu.austral.ingsis.math.visitor.operations.Sum;
-import edu.austral.ingsis.math.visitor.Variable;
-import edu.austral.ingsis.math.visitor.Visitor;
 
 public class EvaluateVisitor implements Visitor<Double> {
   @Override
@@ -38,7 +38,8 @@ public class EvaluateVisitor implements Visitor<Double> {
 
   @Override
   public Double visit(Multiplication multiplication) {
-    return multiplication.getVisitable1().accept(this) * multiplication.getVisitable2().accept(this);
+    return multiplication.getVisitable1().accept(this)
+        * multiplication.getVisitable2().accept(this);
   }
 
   @Override

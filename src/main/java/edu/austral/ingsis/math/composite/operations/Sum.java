@@ -10,12 +10,11 @@ public class Sum extends TwoVariableOperation {
 
   @Override
   public double evaluate() {
-    return getFunction1().evaluate()+getFunction2().evaluate();
+    return getFunction1().evaluate() + getFunction2().evaluate();
   }
 
   @Override
   public String print() {
-    return getFunction1().print() +" + " + getFunction2().print();
+    return getFunction1().print() + " + " + getFunction2().print();
   }
-
 }

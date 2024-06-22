@@ -10,7 +10,7 @@ public class Substract extends TwoVariableOperation {
 
   @Override
   public double evaluate() {
-    return getFunction1().evaluate()-getFunction2().evaluate();
+    return getFunction1().evaluate() - getFunction2().evaluate();
   }
 
   @Override

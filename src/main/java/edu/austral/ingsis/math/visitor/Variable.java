@@ -1,15 +1,15 @@
 package edu.austral.ingsis.math.visitor;
 
-public class Variable implements Visitable{
+public class Variable implements Visitable {
   private int value;
   private final String variable;
 
   public Variable(int value) {
     this.value = value;
-    this.variable="";
+    this.variable = "";
   }
 
-  public Variable(String variable, int value){
+  public Variable(String variable, int value) {
     this.variable = variable;
     this.value = value;
   }
@@ -18,19 +18,18 @@ public class Variable implements Visitable{
     this.variable = variable;
   }
 
-  public boolean isVariable(){
+  public boolean isVariable() {
     return !variable.isEmpty();
   }
-
 
   public double getValue() {
     return value;
   }
 
-  public String print(){
-    if(!variable.isEmpty()){
+  public String print() {
+    if (!variable.isEmpty()) {
       return variable;
-    } else{
+    } else {
       return String.valueOf(value);
     }
   }

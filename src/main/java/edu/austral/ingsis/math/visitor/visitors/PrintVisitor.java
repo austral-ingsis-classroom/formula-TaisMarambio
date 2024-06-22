@@ -1,5 +1,7 @@
 package edu.austral.ingsis.math.visitor.visitors;
 
+import edu.austral.ingsis.math.visitor.Variable;
+import edu.austral.ingsis.math.visitor.Visitor;
 import edu.austral.ingsis.math.visitor.operations.Absolute;
 import edu.austral.ingsis.math.visitor.operations.Division;
 import edu.austral.ingsis.math.visitor.operations.Multiplication;
@@ -7,8 +9,6 @@ import edu.austral.ingsis.math.visitor.operations.Parenthesis;
 import edu.austral.ingsis.math.visitor.operations.Power;
 import edu.austral.ingsis.math.visitor.operations.Substract;
 import edu.austral.ingsis.math.visitor.operations.Sum;
-import edu.austral.ingsis.math.visitor.Variable;
-import edu.austral.ingsis.math.visitor.Visitor;
 
 public class PrintVisitor implements Visitor<String> {
   @Override
@@ -18,7 +18,7 @@ public class PrintVisitor implements Visitor<String> {
 
   @Override
   public String visit(Sum sum) {
-    return sum.getVisitable1().accept(this) + " + " + sum.getVisitable2().accept(this) ;
+    return sum.getVisitable1().accept(this) + " + " + sum.getVisitable2().accept(this);
   }
 
   @Override
@@ -38,7 +38,9 @@ public class PrintVisitor implements Visitor<String> {
 
   @Override
   public String visit(Multiplication multiplication) {
-    return  multiplication.getVisitable1().accept(this) + " * " + multiplication.getVisitable2().accept(this);
+    return multiplication.getVisitable1().accept(this)
+        + " * "
+        + multiplication.getVisitable2().accept(this);
   }
 
   @Override
@@ -50,5 +52,4 @@ public class PrintVisitor implements Visitor<String> {
   public String visit(Parenthesis parenthesis) {
     return "(" + parenthesis.getVariable().accept(this) + ")";
   }
-
 }

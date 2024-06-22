@@ -24,5 +24,5 @@ public interface Visitor<T> {
 
   T visit(Variable variable);
 
-  T visit (Parenthesis parenthesis);
+  T visit(Parenthesis parenthesis);
 }

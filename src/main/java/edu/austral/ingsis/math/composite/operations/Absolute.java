@@ -2,7 +2,7 @@ package edu.austral.ingsis.math.composite.operations;
 
 import edu.austral.ingsis.math.composite.Function;
 
-public class Absolute extends SingleVariableOperation{
+public class Absolute extends SingleVariableOperation {
 
   public Absolute(Function function) {
     super(function);
@@ -15,6 +15,6 @@ public class Absolute extends SingleVariableOperation{
 
   @Override
   public String print() {
-    return "|"+getFunction().print()+"|";
+    return "|" + getFunction().print() + "|";
   }
 }
