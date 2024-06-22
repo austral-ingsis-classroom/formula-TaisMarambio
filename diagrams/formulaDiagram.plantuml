@@ -1,0 +1,171 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Absolute {
+  + accept(Visitor<T>): T
+}
+class Absolute {
+  + evaluate(): double
+  + print(): String
+}
+class Division {
+  + evaluate(): double
+  + print(): String
+}
+class Division {
+  + accept(Visitor<T>): T
+}
+class EvaluateVisitor {
+  + visit(Division): Double
+  + visit(Substract): Double
+  + visit(Parenthesis): Double
+  + visit(Sum): Double
+  + visit(Absolute): Double
+  + visit(Variable): Double
+  + visit(Power): Double
+  + visit(Multiplication): Double
+}
+interface Function << interface >> {
+  + evaluate(): double
+  + listVariables(List<String>): List<String>
+  + print(): String
+}
+class ListVariablesVisitor {
+  + visit(Absolute): List<String>
+  + visit(Variable): List<String>
+  + visit(Division): List<String>
+  - merge(List<String>, List<String>): List<String>
+  + visit(Power): List<String>
+  + visit(Parenthesis): List<String>
+  + visit(Sum): List<String>
+  + visit(Substract): List<String>
+  + visit(Multiplication): List<String>
+}
+class Multiplication {
+  + print(): String
+  + evaluate(): double
+}
+class Multiplication {
+  + accept(Visitor<T>): T
+}
+class Parenthesis {
+  + print(): String
+  + evaluate(): double
+}
+class Parenthesis {
+  + accept(Visitor<T>): T
+}
+class Power {
+  + accept(Visitor<T>): T
+}
+class Power {
+  + evaluate(): double
+  + print(): String
+}
+class PrintVisitor {
+  + visit(Division): String
+  + visit(Variable): String
+  + visit(Sum): String
+  + visit(Absolute): String
+  + visit(Multiplication): String
+  + visit(Parenthesis): String
+  + visit(Substract): String
+  + visit(Power): String
+}
+class SingleVariableOperation {
+  - function: Function
+  + getFunction(): Function
+  + listVariables(List<String>): List<String>
+}
+class SingleVariableOperation {
+  - variable: Visitable
+  + getVariable(): Visitable
+}
+class Substract {
+  + accept(Visitor<T>): T
+}
+class Substract {
+  + evaluate(): double
+  + print(): String
+}
+class Sum {
+  + evaluate(): double
+  + print(): String
+}
+class Sum {
+  + accept(Visitor<T>): T
+}
+class TwoVariableOperation {
+  - function2: Function
+  - function1: Function
+  + getFunction2(): Function
+  + listVariables(List<String>): List<String>
+  + getFunction1(): Function
+}
+class TwoVariableOperation {
+  - visitable1: Visitable
+  - visitable2: Visitable
+  + getVisitable1(): Visitable
+  + getVisitable2(): Visitable
+}
+class Variable {
+  - variable: String
+  - value: int
+  + accept(Visitor<T>): T
+  + isVariable(): boolean
+  + getValue(): double
+  + print(): String
+}
+class Variable {
+  - value: int
+  - variable: String
+  + listVariables(List<String>): List<String>
+  + isVariable(): boolean
+  + evaluate(): double
+  + print(): String
+}
+interface Visitable << interface >> {
+  + accept(Visitor<T>): T
+}
+interface Visitor<T> << interface >> {
+  + visit(Multiplication): T
+  + visit(Parenthesis): T
+  + visit(Variable): T
+  + visit(Sum): T
+  + visit(Power): T
+  + visit(Absolute): T
+  + visit(Division): T
+  + visit(Substract): T
+}
+
+Absolute                 -[#000082,plain]-^  SingleVariableOperation 
+Absolute                 -[#000082,plain]-^  SingleVariableOperation 
+Division                 -[#000082,plain]-^  TwoVariableOperation    
+Division                 -[#000082,plain]-^  TwoVariableOperation    
+EvaluateVisitor          -[#008200,dashed]-^  Visitor                 
+ListVariablesVisitor     -[#008200,dashed]-^  Visitor                 
+Multiplication           -[#000082,plain]-^  TwoVariableOperation    
+Multiplication           -[#000082,plain]-^  TwoVariableOperation    
+Parenthesis              -[#000082,plain]-^  SingleVariableOperation 
+Parenthesis              -[#000082,plain]-^  SingleVariableOperation 
+Power                    -[#000082,plain]-^  TwoVariableOperation    
+Power                    -[#000082,plain]-^  TwoVariableOperation    
+PrintVisitor             -[#008200,dashed]-^  Visitor                 
+SingleVariableOperation  -[#008200,dashed]-^  Function                
+SingleVariableOperation "1" *-[#595959,plain]-> "function\n1" Function                
+SingleVariableOperation  -[#008200,dashed]-^  Visitable               
+SingleVariableOperation "1" *-[#595959,plain]-> "variable\n1" Visitable               
+Substract                -[#000082,plain]-^  TwoVariableOperation    
+Substract                -[#000082,plain]-^  TwoVariableOperation    
+Sum                      -[#000082,plain]-^  TwoVariableOperation    
+Sum                      -[#000082,plain]-^  TwoVariableOperation    
+TwoVariableOperation     -[#008200,dashed]-^  Function                
+TwoVariableOperation    "1" *-[#595959,plain]-> "function1\n1" Function                
+TwoVariableOperation     -[#008200,dashed]-^  Visitable               
+TwoVariableOperation    "1" *-[#595959,plain]-> "visitable1\n1" Visitable               
+Variable                 -[#008200,dashed]-^  Function                
+Variable                 -[#008200,dashed]-^  Visitable               
+@enduml
